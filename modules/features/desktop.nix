@@ -9,6 +9,7 @@
       self.nixosModules.firefox
       self.nixosModules.chromium
       self.nixosModules.mpv
+      self.nixosModules.qbit
     ];
 
     programs.niri.enable = true;
