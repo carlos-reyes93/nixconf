@@ -14,9 +14,9 @@
       inherit pkgs;
       imports = [self.wrappersModules.niri];
       terminal = lib.getExe self'.packages.terminal;
-      # env = {
-      #   EDITOR = lib.getExe self'.packages.neovim;
-      # };
+      env = {
+        EDITOR = lib.getExe self'.packages.neovim;
+      };
     };
 
     # My primary flake terminal
@@ -65,10 +65,45 @@
         pkgs.yt-dlp
         pkgs.lazygit
 
+        # go
+        pkgs.go
+        pkgs.gopls
+        pkgs.golangci-lint
+        pkgs.gosec
+        pkgs.goreleaser
+
+        # python
+        pkgs.python3
+        pkgs.python3Packages.python-lsp-server
+        pkgs.python3Packages.python-lsp-ruff
+        pkgs.uv
+
+        # Rust
+        pkgs.cargo
+        pkgs.rustc
+        pkgs.clippy
+        pkgs.rustfmt
+        pkgs.rust-analyzer
+
+        pkgs.azure-cli
+
+        #dev tools
+        pkgs.devenv
+        pkgs.httpie
+        pkgs.pre-commit
+        pkgs.just
+        pkgs.bats
+        pkgs.powershell
+        pkgs.act
+        pkgs.bun
+        pkgs.jujutsu
+        pkgs.jjui
+        pkgs.nodejs_22
+        (pkgs.pnpm.override { nodejs = pkgs.nodejs_22; })
+
         # wrapped
-        # self'.packages.neovimDynamic
-        # self'.packages.qalc
         self'.packages.tmux
+        self'.packages.neovim
         self'.packages.lf
         self'.packages.git
         # self'.packages.jujutsu

@@ -6,7 +6,6 @@
   }: {
     imports = [
       self.nixosModules.extra_hjem
-      self.nixosModules.gtk
       self.nixosModules.nix
     ];
 
@@ -15,7 +14,6 @@
       description = "${config.preferences.user.name}'s account";
       extraGroups = ["wheel" "networkmanager"];
       shell = self.packages.${pkgs.system}.environment;
-
       initialPassword = "jq";
     };
 
